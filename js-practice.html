@@ -15,13 +15,13 @@
     console.dir(h1);
 
     let h1Font = 16;
+    h1Font = 32;
     // h1 폰트를 숫자로 정해놓고 숫자를 더해서 할 수 있으면
     h1.style.fontSize = h1Font+'px';
     console.log(h1.style);
 
     h1.addEventListener('click', function(){
-      console.log(h1);   
-        h1.style.fontSize = h1font++;
+        h1.style.fontSize = (h1Font++)+'px';
         console.log(h1);
     });
     </script>

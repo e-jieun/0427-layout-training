@@ -25,8 +25,11 @@
     const clickBtn = document.getElementById('click-button');
     // 클릭버튼을 누르면 실행되는 이벤트 
     clickBtn.addEventListener('click', function(){
+      // 이벤트가 잘 실행되는지 콘솔에 기록해본다
       console.log('test');
+      // 변수 value를 선언하고 값을 1로 할당해준다
       let value = 1;
+      // 반복 - 인덱스 0부터 value보다 인덱스가 작을 때까지 실행, 실행한 다음 인덱스 값에 +1
       for(let i = 0; i < value; i++){
         // 섹션 요소를 만든다
         let makeSection = document.createElement('div');
