@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>hello js!</h1>
+  <!-- h1 태그를 클릭할 때마다 글씨 크기가 1px씩 커지는 인터랙션을 구현하시오 -->
+  <script>
+    // 내가 썼던 부분
+    // const h1 = document.querySelector('body').children;
+    // console.log(h1);  
+    // console.dir(h1);
+
+    // let h1Font = 16;
+    // // h1 폰트를 숫자로 정해놓고 숫자를 더해서 할 수 있으면
+    // h1[0].style.fontSize = h1Font+'px';
+    // console.log(h1[0].style);
+
+    // h1[0].addEventListener('click', function(){
+    //   console.log(h1[0]);
+    //   let a = 1;
+    //   for(let i = 0; i < a; i++){
+    //     h1[0].style.fontSize = `${h1Font+1}px`;
+    //     console.log(h1[0]);
+    //   }
+
+    // });
+
+    // 러닝커브 -> 값을 제어하는 !논리!적인 생각 꺼내는 작업
+
+    const h1 = document.querySelector('h1');
+    console.log(h1);
+    // 완료
+
+    console.dir(h1.style);
+    let fontSizeValue = 16;
+    fontSizeValue = 32;
+    h1.style.fontSize = fontSizeValue+'px';
+
+    h1.addEventListener('click', function(){
+      // 조절되는 부분
+      fontSizeValue--;
+      h1.style.fontSize = fontSizeValue+'px';
+      console.log(fontSizeValue);
+      // 크기가 30이면 감소
+      if(fontSizeValue === 30){
+        fontSizeValue--;
+        console.log(h1.style);
+      }
+      // https://www.google.com/search?q=%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8+%EB%B9%84%EA%B5%90%EB%AC%B8&biw=1027&bih=772&ei=hsFoYp2UEMrK2roPu9qu6As&ved=0ahUKEwid78uXr7P3AhVKpVYBHTutC70Q4dUDCA4&uact=5&oq=%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8+%EB%B9%84%EA%B5%90%EB%AC%B8&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEOgsIABCABBCxAxCDAToECAAQAzoRCC4QgAQQsQMQgwEQxwEQ0QM6CwguEIAEELEDEIMBOg4ILhCABBCxAxCDARDUAjoICAAQgAQQsQM6BggAEAcQHkoECEEYAEoECEYYAFAAWPEuYPIwaAZwAXgGgAGYAYgBlxaSAQQwLjIxmAEAoAEBwAEB&sclient=gws-wiz
+      // 크기가 10이면 증가
+      // ! 이 부분 해결하기
+      if(fontSizeValue <= 10){
+        fontSizeValue++;
+        console.log(h1.style);
+      }
+    });
+    </script>
+</body>
+</html>

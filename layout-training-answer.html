@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <button id="click-button">click</button>
+    <div>회색 바</div>
+  </div>
+  
+  <script>
+    const root = document.getElementById('root');
+    console.dir(root);
+    const grayBar = root.children[0];
+    console.dir(grayBar);
+    // 태그 추가용이 아니다
+    // innerHTML이 태그를 넣을 수 있는 부분이었구나
+    // 1. 일단은 구상한 것의 가장 큰 요소를 찾는다
+    // 2. 모르는 이슈들을 발견한다
+    // 3. 개발자 도구 => 시도 => 안 먹힘
+    // 4. 검사를 하니까 여러가지 방법이 있더라 => 직접 테스트를 해본다 => 코드를 짧게 테스트 버전으로 !새롭게 시도하는 뭔가! 짧게 코드를 쓰고 테스트를 한다
+    // => 메인 파일로 테스트를 하면 원인을 못 찾는 문제가 생기기 때문(이건 잘못)
+    // 5. 추측하건데 에러가 없는 걸보니 내가 작성법은 틀린게 아니구나
+    // 5-1. console.log() <- 작성은 에러가 나지 않는다란 것을 확인할 수 있었음
+    // 5-2. issue1. 10번 반복하지만 10번 추가되진 않는다
+    // 6. 검색은 창피한 것이 아니라 응당 켜놔야 함
+    // 6-1. 검색창 안 켜고 일하면 자세가 안되있는 것(잘못)
+    // => !dom 요소를 동적으로 추가했다!
+    // 자바스크립트를 통해서 문서 자체를 만들어버린 것
+    // grayBar.innerHTML = '<section>hello</section>';
+    // console.log(i);
+
+    // li를 맨날 하드코딩하기 힘들다, 자동으로 만들어 주도록
+    // 패턴 챙기기
+    const clickBtn = document.getElementById('click-button');
+    clickBtn.addEventListener('click', function(){
+      console.log('test');
+      let value = 1;
+      let sectionString = 'hello';    
+      for(let i = 0; i < value; i++){
+        // 섹션 요소를 만든다
+        let makeSection = document.createElement('section');
+        makeSection.innerHTML = sectionString;
+        makeSection.style.width = '50px';
+        makeSection.style.height = '700px';
+        makeSection.style.backgroundColor = '#c4c4c4';
+        makeSection.style.display = 'flex';
+        // 자식으로 grayBar에 덧붙여줘
+        // append: 덧붙이다, 자식으ㅡ로 덧붙이다
+        // appendChild(): 요소를 추가할 때 많이 사용한다
+        // https://developer.mozilla.org/ko/docs/Web/API/Node/appendChild
+        // 부모 노드의 자식 노드 리스트 중 마지막 자식으로 붙인다
+        // 요소를 만든다, 문서를 만들어버릴 수도 있다
+        grayBar.appendChild(makeSection);
+      }
+    });
+
+      // node는 마디
+      // 검색
+  </script>
+</body>
+</html>

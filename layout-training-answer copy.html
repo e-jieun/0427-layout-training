@@ -1,0 +1,43 @@
+<!-- 다시 하기 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <button id="click-button">click</button>
+    <div>회색 바</div>
+  </div>
+  
+  <!-- 클릭할 때마다 section 태그가 추가되는 동적 제어를 구현하시오 -->
+  <script>
+    const root = document.getElementById('root');
+    console.dir(root);
+    // 자식의 순서를 살피는 로그를 남겨야
+    console.log(root.children);
+    const grayBar = root.children[1];
+    console.dir(grayBar);
+
+    const clickBtn = document.getElementById('click-button');
+    // 클릭버튼을 누르면 실행되는 이벤트 
+    clickBtn.addEventListener('click', function(){
+      console.log('test');
+      let value = 1;
+      for(let i = 0; i < value; i++){
+        // 섹션 요소를 만든다
+        let makeSection = document.createElement('div');
+        const helloNum = makeSection.innerHTML;
+        helloNum = 'hello'+(i++);
+        // grayBar.appendChild(makeSection);
+        root.appendChild(makeSection);
+        console.log(root);
+      }
+      // 검색도 실력이 있어야 검색을 할 수 있다....
+    });
+  </script>
+</body>
+</html>
